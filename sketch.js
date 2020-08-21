@@ -14,6 +14,7 @@ function setup() {
   
   engine = Engine.create();
   world = engine.world;
+  Engine.run(engine);
 
  stand1 = new Ground(390,300,250,5);
  
@@ -43,8 +44,9 @@ function setup() {
 
 
  //level4
- block16 = new Block(390,155,30,40);
  fill("lightBlue");
+ block16 = new Block(390,155,30,40);
+ 
  
  polygon = Bodies.circle(50,200,20);
   World.add(world,polygon);
@@ -87,4 +89,10 @@ function mouseDragged(){
 
 function mouseReleased(){
   slingshot.fly();
+}
+
+function keyPressed(){
+  if(keyCode === 32){
+      slingshot.attach(this.polygon);
+  }
 }
